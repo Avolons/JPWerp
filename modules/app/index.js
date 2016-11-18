@@ -14,8 +14,8 @@ var vm = new Vue({
                 url:"index_v1.html",
               },
               {
-                title:"主页示例二",
-                url:"index_v2.html",
+                title:"表格",
+                url:"bootstraptable.html",
               },
               {
                 title:"主页示例三",
@@ -78,7 +78,7 @@ var vm = new Vue({
 
   },
   ready:function(){
-  
+
 
   }
 });

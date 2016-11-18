@@ -26,7 +26,7 @@
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
     <div id="wrapper">
         <!--左侧导航开始-->
-        <nav class="navbar-default navbar-static-side" role="navigation">
+        <nav class="navbar-default navbar-static-side"  role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
@@ -79,9 +79,6 @@
                       </template>
                     </li>
                     <!-- 左侧table按钮数据渲染区域 -->
-
-
-
                 </ul>
             </div>
         </nav>
@@ -89,7 +86,7 @@
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <nav class="navbar navbar-static-top" style="min-height:40px;margin-bottom:0" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
 
                     </div>
@@ -170,7 +167,7 @@
                             </ul>
                         </li>
                         <li class="hidden-xs">
-                          <a href="login.html" class="roll-nav  J_tabExit"><i class="fa  fa-sign-out"></i> 退出</a>
+                          <a id="signout"  href="login.html" class="roll-nav  J_tabExit"><i class="fa  fa-sign-out"></i> 退出</a>
                         </li>
                     </ul>
                 </nav>

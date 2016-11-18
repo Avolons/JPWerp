@@ -34,17 +34,7 @@ fis.match('/img/**/*', {
 });
 
 // ------ 配置components
-fis.match('/components/**', {
-    release: '${project.static}/$&'
-});
-fis.match('/components/**.css', {
-    isMod: true,
-    release: '${project.static}/$&'
-});
-fis.match('/components/**.js', {
-    isMod: true,
-    release: '${project.static}/$&'
-});
+
 
 
 // ------ 配置modules

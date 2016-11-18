@@ -105,6 +105,8 @@ $(function () {
             }
         }
     }
+
+
     //左侧table点击添加新的iframe层
     function menuItem() {
         // 获取标识数据，获取ifrmae对象的url值；
@@ -131,6 +133,8 @@ $(function () {
                       // 还是以id值来进行判断，改成以数据驱动的方式应该会大量的减少代码的数量
                         if ($(this).data('id') == dataUrl) {
                             $(this).show().siblings('.J_iframe').hide();
+                            var maodian=window.location.href.split("#")[0];
+                            window.location.href=maodian+"#"+dataUrl;
                             return false;
                         }
                     });
@@ -158,11 +162,24 @@ $(function () {
             $('.J_menuTabs .page-tabs-content').append(str);
             // 滚动到当前选项卡
             scrollToTab($('.J_menuTab.active'));
+            var maodian=window.location.href.split("#")[0];
+            window.location.href=maodian+"#"+dataUrl;
         }
         return false;
     }
     //左侧导航点击函数
     $('.J_menuItem').on('click', menuItem);
+
+    if (window.location.href.split("#")[1]) {
+      var dataUrl=window.location.href.split("#")[1];
+      $(".J_menuItem").each(function(){
+        if($(this).attr('href')===dataUrl){
+          $(this).parents("li").trigger("click");
+           $(this).trigger("click");
+
+        }
+      });
+    }
     // 关闭选项卡菜单
     function closeTab() {
         var closeTabId = $(this).parents('.J_menuTab').data('id');
@@ -182,6 +199,8 @@ $(function () {
                 $('.J_mainContent .J_iframe').each(function () {
                     if ($(this).data('id') == activeId) {
                         $(this).show().siblings('.J_iframe').hide();
+                        var maodian=window.location.href.split("#")[0];
+                        window.location.href=maodian+"#"+$(this).data("id");
                         return false;
                     }
                 });
@@ -213,6 +232,8 @@ $(function () {
                 $('.J_mainContent .J_iframe').each(function () {
                     if ($(this).data('id') == activeIds) {
                         $(this).show().siblings('.J_iframe').hide();
+                        var maodian=window.location.href.split("#")[0];
+                        window.location.href=maodian+"#"+$(this).data("id");
                         return false;
                     }
                 });
@@ -289,6 +310,8 @@ $(function () {
             $('.J_mainContent .J_iframe').each(function () {
                 if ($(this).data('id') == currentId) {
                     $(this).show().siblings('.J_iframe').hide();
+                    var maodian=window.location.href.split("#")[0];
+                    window.location.href=maodian+"#"+$(this).data("id");
                     return false;
                 }
             });
@@ -323,6 +346,8 @@ $(function () {
         });
         $('.page-tabs-content').children("[data-id]:first").each(function () {
             $('.J_iframe[data-id="' + $(this).data('id') + '"]').show();
+            var maodian=window.location.href.split("#")[0];
+            window.location.href=maodian+"#"+$(this).data("id");
             $(this).addClass("active");
         });
         $('.page-tabs-content').css("margin-left", "0");
