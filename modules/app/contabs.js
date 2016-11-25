@@ -76,7 +76,7 @@ $(function () {
     //查看右侧隐藏的选项卡
     function scrollTabRight() {
       // 取绝对值，标签栏区左margin的距离
-        var marginLeftVal = Math.abs(parseInt($('.page-tabs-content').css('margin-left')));
+        var marginLeftVal = Math.abs(parseInt($('.page-tabs-content').css('margin-left'))); 
         // 可视区域非tab宽度
         var tabOuterWidth = calSumWidth($(".content-tabs").children().not(".J_menuTabs"));
         //可视区域tab宽度
@@ -105,8 +105,6 @@ $(function () {
             }
         }
     }
-
-
     //左侧table点击添加新的iframe层
     function menuItem() {
         // 获取标识数据，获取ifrmae对象的url值；
@@ -169,17 +167,6 @@ $(function () {
     }
     //左侧导航点击函数
     $('.J_menuItem').on('click', menuItem);
-
-    if (window.location.href.split("#")[1]) {
-      var dataUrl=window.location.href.split("#")[1];
-      $(".J_menuItem").each(function(){
-        if($(this).attr('href')===dataUrl){
-          $(this).parents("li").trigger("click");
-           $(this).trigger("click");
-
-        }
-      });
-    }
     // 关闭选项卡菜单
     function closeTab() {
         var closeTabId = $(this).parents('.J_menuTab').data('id');
@@ -200,7 +187,7 @@ $(function () {
                     if ($(this).data('id') == activeId) {
                         $(this).show().siblings('.J_iframe').hide();
                         var maodian=window.location.href.split("#")[0];
-                        window.location.href=maodian+"#"+$(this).data("id");
+                        window.location.href=maodian+"#"+$(this).attr("src");
                         return false;
                     }
                 });
@@ -233,7 +220,7 @@ $(function () {
                     if ($(this).data('id') == activeIds) {
                         $(this).show().siblings('.J_iframe').hide();
                         var maodian=window.location.href.split("#")[0];
-                        window.location.href=maodian+"#"+$(this).data("id");
+                        window.location.href=maodian+"#"+$(this).attr("src");
                         return false;
                     }
                 });
@@ -311,7 +298,7 @@ $(function () {
                 if ($(this).data('id') == currentId) {
                     $(this).show().siblings('.J_iframe').hide();
                     var maodian=window.location.href.split("#")[0];
-                    window.location.href=maodian+"#"+$(this).data("id");
+                    window.location.href=maodian+"#"+$(this).attr("src");
                     return false;
                 }
             });
@@ -347,7 +334,7 @@ $(function () {
         $('.page-tabs-content').children("[data-id]:first").each(function () {
             $('.J_iframe[data-id="' + $(this).data('id') + '"]').show();
             var maodian=window.location.href.split("#")[0];
-            window.location.href=maodian+"#"+$(this).data("id");
+            window.location.href=maodian+"#"+$(this).attr("src");
             $(this).addClass("active");
         });
         $('.page-tabs-content').css("margin-left", "0");
